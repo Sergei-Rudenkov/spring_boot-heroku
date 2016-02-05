@@ -8,6 +8,7 @@ package controller;
 import model.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.mapping.Array;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +17,7 @@ import util.HibernateUtil;
 import util.CommonUtil;
 
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,10 +43,11 @@ public class Application {
 
     @RequestMapping("/get_users")
     public List getUser() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        String hql = "FROM model.User";
-        Query query = session.createQuery(hql);
-        return query.list();
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        String hql = "FROM model.User";
+//        Query query = session.createQuery(hql);
+//        return query.list();
+        return Arrays.asList("Hello, Nikita! One day I will call Postgres here");
 
     }
 
