@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.*;
 import util.HibernateUtil;
 import util.CommonUtil;
 
+import javax.persistence.EntityManagerFactory;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;
@@ -43,13 +46,12 @@ public class Application {
 
     @RequestMapping("/get_users")
     public List getUser() {
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        String hql = "FROM model.User";
-//        Query query = session.createQuery(hql);
-//        return query.list();
-        return Arrays.asList("Hello, Nikita! One day I will call Postgres here");
-
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String hql = "FROM model.User";
+        Query query = session.createQuery(hql);
+        return query.list();
     }
+
 
     @RequestMapping("/get_entire_vac")
     public List getEntireVac() {
